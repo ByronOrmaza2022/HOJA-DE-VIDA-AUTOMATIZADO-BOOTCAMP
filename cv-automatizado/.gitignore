@@ -1,0 +1,17 @@
+# Virtual env
+cv-autovenv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Node
+node_modules/
+
+# Env
+.env
+
+# VSCode
+.vscode/

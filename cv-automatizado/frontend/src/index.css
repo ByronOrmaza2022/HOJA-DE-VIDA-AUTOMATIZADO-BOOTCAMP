@@ -1,0 +1,582 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/*AGREGADO*/
+@media print {
+  body {
+    background: white;
+  }
+
+  .shadow-lg {
+    box-shadow: none !important;
+  }
+}
+
+.input {
+  @apply border rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-400;
+}
+
+@media print {
+  body {
+    background: white;
+  }
+
+  .cv-a4 {
+    width: 210mm;
+    min-height: 297mm;
+    margin: auto;
+  }
+}
+
+/*Stagger con animation-delay*/
+/*@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}*/
+
+/*Animación Tailwind personalizada - Wrapper Animado*/
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-slide {
+  animation: fadeSlide 0.35s ease-out;
+}
+
+/* Animación sincronizada del CVPreview */
+/*@keyframes cvPreviewIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(0.8);
+  }
+}
+
+.animate-cv-preview {
+  animation: cvPreviewIn 450ms ease-out;
+}*/
+
+@keyframes sectionIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.admin-ui .animate-section {
+  animation: sectionIn 400ms ease-out both;
+}
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-cv {
+  animation: fadeInUp 300ms ease-out both;
+}
+
+/*--------------------------------------------------------------------------------------------*/
+/* Animación Modal Admin - Forms */
+/*----------------------------------------------------------------*/
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-modal-in {
+  animation: modalIn 0.25s ease-out forwards;
+}
+
+
+/*--------------------------------------------------------------------------------------------*/
+/*   INPUT GLOBAL REUTILIZABLE
+------------------------------------------------------------------*/
+
+.input {
+  @apply w-full rounded-lg border border-slate-300 
+    px-3 py-2 text-sm text-slate-800
+    bg-white
+    outline-none
+    transition-all duration-200;
+}
+
+/* Focus */
+.input:focus {
+  @apply border-blue-500 ring-2 ring-blue-200;
+}
+
+/* Placeholder */
+.input::placeholder {
+  color: #94a3b8; /* slate-400 */
+}
+
+/* Disabled */
+.input:disabled {
+  @apply bg-slate-100 cursor-not-allowed opacity-70;
+}
+
+/* Error opcional */
+.input-error {
+  @apply border-red-500 ring-red-200;
+}
+
+
+/*--------------------------------------------------------------------------------------------*/
+/* Scroll elegante para modales admin - forms */
+.modal-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 116, 139, 0.5) transparent;
+}
+
+.modal-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 116, 139, 0.4);
+  border-radius: 10px;
+}
+.modal-scroll {
+  scroll-behavior: smooth;
+}
+
+/*--------------------------------------------------------------------------------------------*/
+/* Animación PageTransition */
+html, body {
+  overflow-x: hidden;
+  /*overscroll-behavior: none; /* evita rebotes */
+}
+
+
+/*--------------------------------------------------------------------------------------------*/
+/* CSS Layout Personal*/
+/* -------------------------------
+   🎨 Microsoft Fluent Layout
+   ------------------------------- */
+
+:root {
+  --ms-bg: #f3f6fb;
+  --ms-surface: #ffffff;
+  --ms-primary: #2563eb;
+  --ms-primary-soft: #e8f0fe;
+  --ms-text: #0f172a;
+  --ms-muted: #64748b;
+  --ms-border: #e5e7eb;
+  --ms-hover: #f1f5f9;
+}
+
+/* Layout */
+.ms-layout {
+  min-height: 100vh;
+  display: flex;
+  background: var(--ms-bg);
+}
+
+.ms-content {
+  flex: 1;
+  padding: 28px;
+  overflow-y: auto;
+}
+
+/* Sidebar */
+.ms-sidebar {
+  width: 260px;
+  background: var(--ms-surface);
+  border-right: 1px solid var(--ms-border);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+/* Usuario */
+.ms-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--ms-border);
+  margin-bottom: 18px;
+}
+
+.ms-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--ms-primary);
+  color: white;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+}
+
+.ms-username {
+  font-weight: 600;
+  color: var(--ms-text);
+}
+
+.ms-role {
+  font-size: 12px;
+  color: var(--ms-muted);
+}
+
+/* Nav */
+.ms-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ms-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--ms-text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.15s ease;
+}
+
+.ms-nav a:hover {
+  background: var(--ms-hover);
+}
+
+.ms-nav a.active {
+  background: var(--ms-primary-soft);
+  color: var(--ms-primary);
+}
+
+/* Logout */
+.ms-logout {
+  margin-top: auto;
+  border: none;
+  background: transparent;
+  color: #dc2626;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.ms-logout:hover {
+  background: #fee2e2;
+}
+
+/*-------------------------*/
+@keyframes cvEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 🚫 Desactivar animaciones dentro del preview personal */
+.personal-preview .animate-section {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+/* Si usas otras animaciones internas */
+.personal-preview [class*="animate-"] {
+  animation: none !important;
+  transition: none !important;
+}
+
+.personal-ui .animate-cv-enter {
+  animation: cvEnter 0.45s ease-out both;
+}
+
+/*--------------------------------------------------------------------------------------------*/
+/* MODO PDF/IMPRESIÓN CV */
+/*.printing-cv * {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}*/
+
+@media print {
+
+  /* Reset general */
+  body {
+    margin: 0;
+    background: white;
+  }
+
+  /* Ocultar todo */
+  body > * {
+    display: none !important;
+  }
+
+  /* Mostrar SOLO el CV */
+  #cv-print-area {
+    /**/display: block !important;
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    transform: none !important;
+    scale: 1 !important;
+    /**/box-shadow: none !important;
+    animation: none !important;
+    background: white !important;
+  }
+
+  /* Mostrar hijos del CV */
+  #cv-print-area * {
+    display: block;
+    visibility: visible;
+  }
+
+/*--------------------------------------------------------------------------------------------*/
+/* Modo Exportación PDF */
+/*-------------------------------------------------*/
+}
+body.exporting-cv * {
+  animation: none !important;
+  transition: none !important;
+}
+/*
+body.exporting-cv .flex {
+  align-items: flex-start !important;
+}
+
+body.exporting-cv .items-center {
+  align-items: flex-start !important;
+}
+
+body.exporting-cv .justify-center {
+  justify-content: flex-start !important;
+}/*
+
+/* Evita “caídas” verticales */
+/*Plantillas*/
+body.exporting-cv p,
+body.exporting-cv h1,
+body.exporting-cv h2,
+body.exporting-cv h3 {
+  transform: translateY(-1.5px);
+}
+
+/*-------------------------------------------------*/
+/* Template 1 */
+/*-------------------------------------------------*/
+/* Header */
+body.exporting-cv .template1 .cont-spaceone-templateone p,
+body.exporting-cv .template1 .cont-spaceone-templateone h1 {
+  transform: translateY(-9px);
+}
+/* Sidebar */
+body.exporting-cv .template1 .cont-spacetwo-templateone p,
+body.exporting-cv .template1 .cont-spacetwo-templateone h2 {
+  transform: translateY(-9px);
+}
+/* Experiencia*/
+body.exporting-cv .template1 .cont-spacethree-templateone p,
+body.exporting-cv .template1 .cont-spacethree-templateone h3 {
+  transform: translateY(-8px);
+}
+/*css-cursos-template-1*/
+body.exporting-cv .template1 .cont-spacefour-templateone p,
+body.exporting-cv .template1 .cont-spacefour-templateone h3 {
+  transform: translateY(-6px);
+}
+/*css-reconocimientos-template-1*/
+body.exporting-cv .template1 .cont-spacefive-templateone p {
+  transform: translateY(-6px);
+}
+body.exporting-cv .template1 .cont-spacefive-templateone .iconmedal {
+  transform: translateY(-1.65px);
+}
+/*-------------------------------------------------*/
+/* Template 2 */
+/*-------------------------------------------------*/
+/*Header*/
+body.exporting-cv .template-two .cont-spaceone-template-two h1{
+  transform: translateY(-14px);
+}
+body.exporting-cv .template-two .cont-spaceone-template-two p {
+  transform: translateY(-8px);
+}
+body.exporting-cv .template-two .cont-spaceone-span-template-two  {
+  transform: translateY(-8px);
+}
+/* Seccion */
+body.exporting-cv .template-two .cont-spacetwo-template-two h2 {
+  transform: translateY(-8px);
+}
+body.exporting-cv .template-two .cont-spacethree-template-two h3,
+body.exporting-cv .template-two .cont-spacethree-template-two p{
+  transform: translateY(-8px);
+}
+/*-------------------------------------------------*/
+/* Template 3 */
+/*-------------------------------------------------*/
+/* Sidebar */
+body.exporting-cv .template-three .cont-spaceone-template-three h2,
+body.exporting-cv .template-three .cont-spaceone-template-three h3,
+body.exporting-cv .template-three .cont-spaceone-template-three p{
+  transform: translateY(-6px);
+}
+/* Header */
+body.exporting-cv .template-three .cont-spacetwo-template-three h1,
+body.exporting-cv .template-three .cont-spacetwo-template-three p{
+  transform: translateY(-10px);
+}
+/* Body-Experiencia */
+body.exporting-cv .template-three .cont-spacethree-template-three h2{
+  transform: translateY(-12px);
+  padding-bottom: 13px;
+}
+body.exporting-cv .template-three .cont-spacethree-template-three p{
+  transform: translateY(-15px);
+}
+/* Body-Cursos*/
+body.exporting-cv .template-three .cont-spacefour-template-three h2{
+  transform: translateY(-11px);
+  padding-bottom: 13px;
+}
+body.exporting-cv .template-three .cont-spacefour-template-three strong,
+body.exporting-cv .template-three .cont-spacefour-template-three span{
+  transform: translateY(-6px);
+}
+/* Listas Template 3*/
+body.exporting-cv .template-three .cont-spacefour-template-three li {
+  transform: translateY(-12px);
+}
+/* Body-Reconocimientos */
+body.exporting-cv .template-three .cont-spacefive-template-three h2{
+  transform: translateY(-13px);
+  padding-bottom: 12px;
+}
+body.exporting-cv .template-three .cont-spacefive-template-three strong,
+body.exporting-cv .template-three .cont-spacefive-template-three p,
+body.exporting-cv .template-three .cont-spacefive-template-three span{
+  transform: translateY(-5px);
+}
+body.exporting-cv .template-three .cont-spacefive-template-three li {
+  transform: translateY(-12px);
+}
+/*-------------------------------------------------*/
+/* Template 4 */
+/*-------------------------------------------------*/
+/* Header */
+body.exporting-cv .template4 .cont-spaceone-template-four p,
+body.exporting-cv .template4 .cont-spaceone-template-four h1 {
+  transform: translateY(-9px);
+}
+/* Sidebar */
+body.exporting-cv .template4 .cont-spacetwo-template-four p,
+body.exporting-cv .template4 .cont-spacetwo-template-four h2 {
+  transform: translateY(-9px);
+}
+/* Experiencia */
+body.exporting-cv .template4 .cont-spacethree-template-four p,
+body.exporting-cv .template4 .cont-spacethree-template-four h4 {
+  transform: translateY(-8px);
+}
+body.exporting-cv .template4 .cont-spacethree-span-template-four{
+  transform: translateY(-4px);
+}
+body.exporting-cv .template4 .cont-spacethree-span-template-four span{
+  transform: translateY(8px);
+}
+.sidebar-wrapper {
+  display: flex;
+  align-self: stretch;
+  border-right: 1px solid #cbd5e1;
+}
+
+/*cont-spacethree-span-template-four*/
+
+/* Asegurar estado final visible */
+body.exporting-cv .admin-ui .animate-section,
+body.exporting-cv .animate-cv-preview {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Para stagger con delays */
+body.exporting-cv [style*="animation-delay"],
+body.exporting-cv [style*="transition-delay"] {
+  animation-delay: 0s !important;
+  transition-delay: 0s !important;
+}
+
+/*-------------------------------------------------*/
+.template4 {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.template4 h1,
+.template4 h2,
+.template4 h3 {
+  letter-spacing: -0.01em;
+}
+
+
+
