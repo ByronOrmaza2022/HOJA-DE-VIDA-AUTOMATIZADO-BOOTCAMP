@@ -1,3 +1,4 @@
+// Este componente no esta en uso
 import { useEffect, useState } from "react";
 import { authFetch } from "../api/authFetch";
 import CVLayout from "../components/cv/templates/template1/CVLayout";

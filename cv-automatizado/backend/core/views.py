@@ -124,7 +124,7 @@ class LoginView(TokenObtainPairView):
             key="access",
             value=str(refresh.access_token),
             httponly=True,
-            secure=True,      # True en producción HTTPS
+            secure=False,      # True en producción HTTPS
             samesite="Lax",
             max_age=ACCESS_SECONDS
         )

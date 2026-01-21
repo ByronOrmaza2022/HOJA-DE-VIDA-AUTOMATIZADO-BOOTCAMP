@@ -122,7 +122,7 @@ export default function CursosAdmin() {
       {/* HEADER */}
       <div className="flex justify-between items-center">
         <h1 className="text-xl font-semibold">
-          Cursos de {perfil.nombres} {perfil.apellidos}
+          Cursos - {perfil.nombres} {perfil.apellidos}
         </h1>
 
         <button

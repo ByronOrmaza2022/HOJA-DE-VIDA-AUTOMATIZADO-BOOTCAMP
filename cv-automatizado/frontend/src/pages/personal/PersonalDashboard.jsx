@@ -125,15 +125,15 @@ export default function PersonalDashboard() {
         <div className="flex flex-wrap gap-3">
           <QuickAction
             icon={<FaEye />}
-            label="Ver CV"
-            onClick={() => window.open("/cv", "_blank")}
-          />
+            label="Ver CV"            
+            onClick={() => alert("Boton Ver CV no disponible")}
+          />{/*onClick={() => window.open("/cv", "_blank")}*/}
 
           <QuickAction
             icon={<FaFilePdf />}
             label="Descargar PDF"
-            onClick={() => alert("Próximamente PDF 😄")}
-          />
+            onClick={() => alert("Boton PDF no disponible")}
+          />{/**onClick={() => alert("Próximamente PDF 😄")} */}
         </div>
       </div>
     </div>
